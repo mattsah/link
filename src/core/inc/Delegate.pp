@@ -7,6 +7,6 @@ type
         {
             Get the instance from the delegate
         }
-        function getInstance(var engine: Engine): TObject;
+        function getInstance(var engine: Core.Engine): TObject;
 
     end;

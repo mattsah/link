@@ -4,7 +4,7 @@ unit Core;
 
 
 interface
-    uses fgl, classes, Http;
+    uses dos, fgl, classes, Http;
 
     type
         Engine    = class;

@@ -5,9 +5,9 @@ type
     Config = class
 
     private
-        _engine: Engine;
+        _engine: Core.Engine;
 
     public
-        procedure setEngine(var engine: Engine);
+        function setEngine(var engine: Core.Engine): Core.Config;
 
     end;

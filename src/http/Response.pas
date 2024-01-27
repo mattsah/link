@@ -6,7 +6,7 @@ begin
 end;
 
 
-function Response.setStatus(code: integer): Response;
+function Response.setStatus(code: integer): Http.Response;
 begin
     self._status := code;
     result       := self;

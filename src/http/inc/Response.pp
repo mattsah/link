@@ -2,7 +2,7 @@ type
     {
 
     }
-    Response = class(Message)
+    Response = class(Http.Message)
 
     private
         _status: integer;
@@ -16,6 +16,6 @@ type
         {
 
         }
-        function setStatus(code: integer): Response;
+        function setStatus(code: integer): Http.Response;
 
     end;

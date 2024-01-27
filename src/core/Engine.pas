@@ -1,4 +1,4 @@
-constructor Engine.create(var config: Config);
+constructor Engine.create(var config: Core.Config);
 begin
     self._config := config;
     self._config.setEngine(self);
@@ -19,9 +19,9 @@ begin
 
     response.addHeader('Content-Type', 'text/html');
     response.addHeader('Connection', 'closed');
-    response.addHeader('X-Test', 'foo');
+    response.addHeader('X-Test', 'bar');
 
-    response.setStatus(200).setBody('<h1>Hello Pascal!</h1>');
+    response.setStatus(200).setBody(concat('Hello Pascal! from: ', getEnv('PATH_INFO')));
 
     response.render();
 

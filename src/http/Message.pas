@@ -1,6 +1,6 @@
 constructor Message.create();
 begin
-    self._headers := Headers.create();
+    self._headers := Http.Headers.create();
 end;
 
 
@@ -10,7 +10,10 @@ var
 begin
     for headerPos := 0 to (self._headers.count - 1) do;
     begin
-        writeln(self._headers.getKey(headerPos), ':', self._headers.getData(headerPos));
+        writeln(
+            self._headers.getKey(headerPos), ':',
+            self._headers.getData(headerPos).delimitedText
+        );
     end;
 
     writeln();
@@ -18,15 +21,27 @@ begin
 end;
 
 
-function Message.addHeader(header, value: string): Message;
+function Message.addHeader(header, value: string): Http.Message;
+var
+    headerPos: integer;
+    values: TStringList;
 begin
-    self._headers.add(header, value);
+    headerPos := self._headers.indexOf(header);
+
+    if (headerPos = -1) then
+    begin
+        values           := TStringList.create();
+        values.delimiter := ';';
+        headerPos        := self._headers.add(header, values);
+    end;
+
+    self._headers.getData(headerPos).add(value);
 
     result := self;
 end;
 
 
-function Message.setBody(content: string): Message;
+function Message.setBody(content: string): Http.Message;
 begin
     self._body := content;
     result     := self;

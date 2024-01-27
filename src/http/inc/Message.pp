@@ -5,7 +5,7 @@ type
     Message = class
 
     private
-        _headers: Headers;
+        _headers: Http.Headers;
         _body: string;
 
     public
@@ -22,10 +22,10 @@ type
         {
             Add a header to the Message
         }
-        function addHeader(header, value: string): Message;
+        function addHeader(header, value: string): Http.Message;
 
         {
             Set the body of the Message
         }
-        function setBody(content: string): Message;
+        function setBody(content: string): Http.Message;
     end;
