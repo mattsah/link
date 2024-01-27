@@ -1,0 +1,5 @@
+http://:8080 {
+    route / {
+        cgi {env.PWD}/bin/app
+    }
+}

@@ -1,0 +1,1 @@
+fppkg -C lib.cfg $@
