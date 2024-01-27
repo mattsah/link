@@ -17,7 +17,7 @@ type
         {
             Render the Message to standard output
         }
-        procedure render();
+        procedure render(); virtual;
 
         {
             Add a header to the Message

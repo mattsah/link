@@ -24,7 +24,9 @@ begin
     response.addHeader('X-Test', 'foo');
     response.addHeader('X-Test', 'bar');
 
-    response.setStatus(200).setBody(concat('Hello Pascal! from: ', request.getUri().getPath()));
+    response.setStatus(200).setBody(
+        concat('Hello Pascal! from: ', request.getUri().getPath())
+    );
 
     response.render();
 

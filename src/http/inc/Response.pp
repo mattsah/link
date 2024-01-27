@@ -11,7 +11,7 @@ type
         {
             Render the Response to standard output (overloads Message)
         }
-        procedure render();
+        procedure render(); override;
 
         {
 
