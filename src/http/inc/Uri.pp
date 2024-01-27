@@ -17,6 +17,11 @@ type
         {
 
         }
+        function getPath(): string;
+
+        {
+
+        }
         function getQuery(): Http.Query;
 
         {

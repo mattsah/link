@@ -13,8 +13,10 @@ end;
 
 function Engine.run(): integer;
 var
+    request: Http.Request;
     response: Http.Response;
 begin
+    request  := Http.Request.createFromServer();
     response := Http.Response.create();
 
     response.addHeader('Content-Type', 'text/html');
@@ -22,7 +24,7 @@ begin
     response.addHeader('X-Test', 'foo');
     response.addHeader('X-Test', 'bar');
 
-    response.setStatus(200).setBody(concat('Hello Pascal! from: ', getEnv('PATH_INFO')));
+    response.setStatus(200).setBody(concat('Hello Pascal! from: ', request.getUri().getPath()));
 
     response.render();
 

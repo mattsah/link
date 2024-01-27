@@ -8,6 +8,10 @@ begin
     result := self._query;
 end;
 
+function Uri.getPath(): string;
+begin
+     result := self._path;
+end;
 
 function Uri.setPath(path: string): Http.Uri;
 begin

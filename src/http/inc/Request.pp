@@ -14,7 +14,12 @@ type
         constructor create();
 
         {
+            Create a new Request from the Server Environment
+        }
+        constructor createFromServer();
 
+        {
+            Get the Uri for the Request
         }
         function getUri(): Http.Uri;
 
