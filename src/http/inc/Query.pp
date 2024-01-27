@@ -1,6 +1,6 @@
 type
     {
-
+        Handles HTTP query string functionality
     }
     Query = class
 
@@ -9,7 +9,12 @@ type
 
     public
         {
+            Create a new Query
+        }
+        constructor create();
 
+        {
+            Add a parameter to the Query.
         }
         function addParameter(parameter, value: string): Http.Query;
 

@@ -12,6 +12,11 @@ type
         {
 
         }
+        constructor create();
+
+        {
+
+        }
         function getQuery(): Http.Query;
 
         {

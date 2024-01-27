@@ -1,3 +1,8 @@
+constructor Uri.create();
+begin
+    self._query := Http.Query.create();
+end;
+
 function Uri.getQuery(): Http.Query;
 begin
     result := self._query;

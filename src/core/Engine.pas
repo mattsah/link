@@ -19,6 +19,7 @@ begin
 
     response.addHeader('Content-Type', 'text/html');
     response.addHeader('Connection', 'closed');
+    response.addHeader('X-Test', 'foo');
     response.addHeader('X-Test', 'bar');
 
     response.setStatus(200).setBody(concat('Hello Pascal! from: ', getEnv('PATH_INFO')));

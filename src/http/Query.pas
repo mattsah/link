@@ -1,3 +1,8 @@
+constructor Query.create();
+begin
+    self._parameters := Http.Parameters.create();
+end;
+
 function Query.addParameter(parameter, value: string): Http.Query;
 var
     parameterPos: integer;

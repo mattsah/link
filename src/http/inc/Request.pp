@@ -9,6 +9,11 @@ type
 
     public
         {
+            Create a new Request
+        }
+        constructor create();
+
+        {
 
         }
         function getUri(): Http.Uri;
