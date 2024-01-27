@@ -23,4 +23,9 @@ type
         }
         function getUri(): Http.Uri;
 
+        {
+
+        }
+        function setUri(uri: Http.Uri): Http.Request;
+
     end;

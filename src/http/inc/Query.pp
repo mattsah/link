@@ -16,6 +16,6 @@ type
         {
             Add a parameter to the Query.
         }
-        function addParameter(parameter, value: string): Http.Query;
+        function addParameter(parameter: string; value: string): Http.Query;
 
     end;

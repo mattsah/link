@@ -5,6 +5,10 @@ begin
     inherited render();
 end;
 
+function Response.getStatus(): integer;
+begin
+    result := self._status;
+end;
 
 function Response.setStatus(code: integer): Http.Response;
 begin

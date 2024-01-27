@@ -16,3 +16,9 @@ function Request.getUri(): Http.Uri;
 begin
     result := self._uri;
 end;
+
+function Request.setUri(uri: Http.Uri): Http.Request;
+begin
+    self._uri := uri;
+    result    := self;
+end;

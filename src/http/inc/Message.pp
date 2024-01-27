@@ -22,10 +22,20 @@ type
         {
             Add a header to the Message
         }
-        function addHeader(header, value: string): Http.Message;
+        function addHeader(header: string; value: string): Http.Message; virtual;
+
+        {
+            Delete a header to the Message
+        }
+        function delHeader(header: string; value: string = ''): Http.Message; virtual;
 
         {
             Set the body of the Message
         }
-        function setBody(content: string): Http.Message;
+        function setBody(content: string): Http.Message; virtual;
+
+        {
+            Set a header on the Message (wiping out the previous value)
+        }
+        function setHeader(header: string; value: string): Http.Message; virtual;
     end;

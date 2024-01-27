@@ -14,7 +14,12 @@ type
         procedure render(); override;
 
         {
+            Get the status code of the Response
+        }
+        function getStatus(): integer;
 
+        {
+            Set the status code of the Response
         }
         function setStatus(code: integer): Http.Response;
 

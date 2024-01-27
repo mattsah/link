@@ -21,7 +21,7 @@ begin
 end;
 
 
-function Message.addHeader(header, value: string): Http.Message;
+function Message.addHeader(header: string; value: string): Http.Message;
 var
     headerPos: integer;
     values: TStringList;
@@ -40,9 +40,40 @@ begin
     result := self;
 end;
 
+function Message.delHeader(header: string; value: string = ''): Http.Message;
+var
+    headerPos: integer;
+    valuePos: integer;
+begin
+    headerPos := self._headers.indexOf(header);
+
+    if (headerPos > 0) then
+    begin
+        if (value <> '') then
+        begin
+            valuePos := self._headers.getData(headerPos).indexOf(value);
+            self._headers.getData(headerPos).delete(valuePos);
+        end
+        else
+        begin
+            self._headers.remove(header);
+            self._headers.add(header, TStringList.create());
+        end;
+    end;
+
+    result := self;
+end;
 
 function Message.setBody(content: string): Http.Message;
 begin
     self._body := content;
     result     := self;
+end;
+
+function Message.setHeader(header: string; value: string): Http.Message;
+begin
+    self.delHeader(header);
+    self.addHeader(header, value);
+
+    result := self;
 end;
