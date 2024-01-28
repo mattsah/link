@@ -12,6 +12,8 @@ var
 begin
     self.create();
 
+    query := parseUri(concat('?', query)).params;
+
     if (query <> '') then
     begin
         queryParts := query.split('&');
@@ -31,7 +33,7 @@ begin
                 self.addParameter(queryParts[queryPos], '');
             end;
         end;
-    end
+    end;
 
     result := self;
 end;

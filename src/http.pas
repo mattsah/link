@@ -4,7 +4,7 @@ unit Http;
 
 
 interface
-    uses dos, fgl, classes, sysutils;
+    uses dos, fgl, classes, sysutils, uriparser;
 
     type
         Uri        = class;
