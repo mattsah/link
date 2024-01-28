@@ -40,6 +40,7 @@ begin
     result := self;
 end;
 
+
 function Message.delHeader(header: string; value: string = ''): Http.Message;
 var
     headerPos: integer;
@@ -64,11 +65,13 @@ begin
     result := self;
 end;
 
+
 function Message.setBody(content: string): Http.Message;
 begin
     self._body := content;
     result     := self;
 end;
+
 
 function Message.setHeader(header: string; value: string): Http.Message;
 begin

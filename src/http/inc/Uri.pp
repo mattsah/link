@@ -29,4 +29,9 @@ type
         }
         function setPath(path: string): Http.Uri;
 
+        {
+
+        }
+        function setQuery(query: Http.Query): Http.Uri;
+
     end;

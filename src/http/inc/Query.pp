@@ -14,6 +14,11 @@ type
         constructor create();
 
         {
+            Create a new Query from a query string
+        }
+        constructor createFromString(query: string);
+
+        {
             Add a parameter to the Query.
         }
         function addParameter(parameter: string; value: string): Http.Query;
