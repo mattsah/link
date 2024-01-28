@@ -49,7 +49,7 @@ begin
         values       := TStringList.create();
         parameterPos := self._parameters.add(parameter, values);
     end;
-writeln(stderr, parameter, '=', value);
+
     self._parameters.getData(parameterPos).add(value);
 
     result := self;
