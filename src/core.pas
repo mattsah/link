@@ -10,6 +10,7 @@ interface
         Engine    = class;
         Config    = class;
         Delegate  = interface;
+        Handler   = function(): integer;
 
     {$include 'core/inc/Engine.pp'}
     {$include 'core/inc/Config.pp'}

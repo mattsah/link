@@ -14,6 +14,7 @@ interface
         Response   = class;
         Headers    = specialize TFPGMap<string, TStringList>;
         Parameters = specialize TFPGMap<string, TStringList>;
+        Handler    = function(request: Request): Response;
 
     {$include 'http/inc/Uri.pp'}
     {$include 'http/inc/Query.pp'}

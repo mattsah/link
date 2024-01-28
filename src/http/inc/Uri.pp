@@ -4,29 +4,29 @@ type
     }
     Uri = class
 
-    private
-        _path:  string;
-        _query: Http.Query;
+        private
+            _path:  string;
+            _query: Http.Query;
 
-    public
-        {
+        public
+            {
 
-        }
-        constructor create();
+            }
+            constructor create();
 
-        {
+            {
 
-        }
-        function getPath(): string;
+            }
+            function getPath(): string;
 
-        {
+            {
 
-        }
-        function getQuery(): Http.Query;
+            }
+            function getQuery(): Http.Query;
 
-        {
+            {
 
-        }
-        function setPath(path: string): Http.Uri;
+            }
+            function setPath(path: string): Http.Uri;
 
-    end;
+        end;

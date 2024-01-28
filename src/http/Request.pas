@@ -1,21 +1,21 @@
 constructor Request.create();
-begin
-    self._uri := Http.Uri.create();
+    begin
+        self._uri := Http.Uri.create();
 
-    inherited create();
-end;
+        inherited create();
+    end;
 
 
 constructor Request.createFromServer();
-begin
-    self.create();
+    begin
+        self.create();
 
-    self._uri.setPath(getEnv('PATH_INFO'));
-    self._uri.getQuery.build(getEnv('QUERY_STRING'));
-end;
+        self._uri.setPath(getEnv('PATH_INFO'));
+        self._uri.getQuery.build(getEnv('QUERY_STRING'));
+    end;
 
 
 function Request.getUri(): Http.Uri;
-begin
-    result := self._uri;
-end;
+    begin
+        result := self._uri;
+    end;
