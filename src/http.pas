@@ -4,7 +4,7 @@ unit Http;
 
 
 interface
-    uses dos, fgl, classes, sysutils, uriparser;
+    uses dos, fgl, classes, sysutils, uriparser, Core;
 
     type
         Uri        = class;
@@ -21,10 +21,12 @@ interface
     {$include 'http/inc/Message.pp'}
     {$include 'http/inc/Request.pp'}
     {$include 'http/inc/Response.pp'}
+    {$include 'http/inc/Dispatcher.pp'}
 implementation
     {$include 'http/Uri.pas'}
     {$include 'http/Query.pas'}
     {$include 'http/Message.pas'}
     {$include 'http/Request.pas'}
     {$include 'http/Response.pas'}
+    {$include 'http/Dispatcher.pas'}
 end.

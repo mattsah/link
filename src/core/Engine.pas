@@ -13,5 +13,5 @@ function Engine.get(symbol: string): TObject;
 
 function Engine.run(handler: Core.Handler): integer;
     begin
-        result := handler();
+        result := handler(self);
     end;
