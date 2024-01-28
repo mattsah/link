@@ -4,7 +4,7 @@ begin
 end;
 
 
-constructor Query.createFromString(query: string);
+function Query.build(query: string): Http.Query;
 var
     queryPos: integer;
     queryParts: TStringArray;
@@ -32,6 +32,8 @@ begin
             end;
         end;
     end
+
+    result := self;
 end;
 
 
