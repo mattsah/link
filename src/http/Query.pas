@@ -12,8 +12,6 @@ var
 begin
     self.create();
 
-    query := parseUri(concat('?', query)).params;
-
     if (query <> '') then
     begin
         queryParts := query.split('&');
@@ -25,7 +23,7 @@ begin
             begin
                 self.addParameter(
                     queryParts[queryPos].substring(0, parameterPos),
-                    queryParts[queryPos].substring(parameterPos + 1)
+                    parseUri(concat('?', queryParts[queryPos].substring(parameterPos + 1))).params
                 );
             end
             else
@@ -51,7 +49,7 @@ begin
         values       := TStringList.create();
         parameterPos := self._parameters.add(parameter, values);
     end;
-
+writeln(stderr, parameter, '=', value);
     self._parameters.getData(parameterPos).add(value);
 
     result := self;
