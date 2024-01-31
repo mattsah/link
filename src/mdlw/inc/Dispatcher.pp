@@ -1,0 +1,1 @@
+function Dispatcher(var engine: Core.Engine): integer;

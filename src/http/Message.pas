@@ -8,12 +8,15 @@ procedure Message.render();
     var
         headerPos: integer;
     begin
-        for headerPos := 0 to (self._headers.count - 1) do;
+        if (self._headers.count <> 0) then
             begin
-                writeln(
-                    self._headers.getKey(headerPos), ':',
-                    self._headers.getData(headerPos).delimitedText
-                );
+                for headerPos := 0 to (self._headers.count - 1) do;
+                    begin
+                        writeln(
+                            self._headers.getKey(headerPos), ':',
+                            self._headers.getData(headerPos).delimitedText
+                        );
+                    end;
             end;
 
         writeln();
@@ -31,8 +34,8 @@ function Message.addHeader(header: string; value: string): Http.Message;
         if (headerPos = -1) then
             begin
                 values           := TStringList.create();
-                values.delimiter := ';';
                 headerPos        := self._headers.add(header, values);
+                values.delimiter := ';';
             end;
 
         self._headers.getData(headerPos).add(value);
@@ -49,18 +52,18 @@ function Message.delHeader(header: string; value: string = ''): Http.Message;
         headerPos := self._headers.indexOf(header);
 
         if (headerPos > 0) then
-        begin
-            if (value <> '') then
-                begin
-                    valuePos := self._headers.getData(headerPos).indexOf(value);
-                    self._headers.getData(headerPos).delete(valuePos);
-                end
-            else
-                begin
-                    self._headers.remove(header);
-                    self._headers.add(header, TStringList.create());
-                end;
-        end;
+            begin
+                if (value <> '') then
+                    begin
+                        valuePos := self._headers.getData(headerPos).indexOf(value);
+                        self._headers.getData(headerPos).delete(valuePos);
+                    end
+                else
+                    begin
+                        self._headers.remove(header);
+                        self._headers.add(header, TStringList.create());
+                    end;
+            end;
 
         result := self;
     end;

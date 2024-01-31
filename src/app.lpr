@@ -1,9 +1,9 @@
-{$mode objfpc}{$H+}{$J-}
+{$mode objfpc}{$interfaces corba}{$H+}{$J-}
 
 program app;
 
 uses
-    Core, Http;
+    Core, Http, Mdlw;
 
 var
     engine: Core.Engine;
@@ -13,5 +13,5 @@ begin
     config := Core.Config.create();
     engine := Core.Engine.create(config);
 
-    halt(engine.run(@Http.Dispatcher));
+    halt(engine.run(@Mdlw.Dispatcher));
 end.

@@ -1,16 +1,15 @@
-{$mode objfpc}{$H+}{$J-}
+{$mode objfpc}{$interfaces corba}{$H+}{$J-}
 
 unit Core;
 
-
 interface
-    uses dos, fgl, classes;
+    uses dos, fgl, classes, rtti;
 
     type
         Engine    = class;
         Config    = class;
         Delegate  = interface;
-        Handler   = function(engine: Engine): integer;
+        Handler   = function(var engine: Core.Engine): integer;
 
     {$include 'core/inc/Engine.pp'}
     {$include 'core/inc/Config.pp'}

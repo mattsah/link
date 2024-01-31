@@ -2,7 +2,7 @@ type
     {
         The engine is the core of the application
     }
-    Engine = class
+    Engine = class(TObject)
         private
             _config: Core.Config;
             _delegates: specialize TFPGMap<String, Core.Delegate>;
@@ -16,7 +16,7 @@ type
             {
                 Get a new or shared instance of an object, by class or interface name
             }
-            function get(symbol: string): TObject;
+            generic function get<T: class>(): T;
 
             {
                 Run the application engine

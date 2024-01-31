@@ -7,24 +7,22 @@ constructor Query.create();
 function Query.build(query: string): Http.Query;
     var
         splitPos: integer;
-        queryPos: integer;
-        queryParts: TStringArray;
         parameterName: string;
         parameterValue: string;
+        queryPart: string;
     begin
         self.create();
 
         if (query <> '') then
             begin
-                queryParts := query.split('&');
-                for queryPos := 0 to (length(queryParts) - 1) do;
+                for queryPart in query.split('&') do;
                     begin
-                        splitPos := queryParts[queryPos].indexOf('=');
+                        splitPos := queryPart.indexOf('=');
 
                         if (splitPos <> -1) then
                             begin
-                                parameterName  := queryParts[queryPos].substring(0, splitPos);
-                                parameterValue := queryParts[queryPos].substring(splitPos + 1);
+                                parameterName  := queryPart.substring(0, splitPos);
+                                parameterValue := queryPart.substring(splitPos + 1);
 
                                 self.addParameter(
                                     parameterName,
@@ -33,7 +31,7 @@ function Query.build(query: string): Http.Query;
                             end
                         else
                             begin
-                                self.addParameter(queryParts[queryPos], '');
+                                self.addParameter(queryPart, '');
                             end;
                     end;
             end;

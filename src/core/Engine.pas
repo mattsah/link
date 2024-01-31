@@ -4,10 +4,9 @@ constructor Engine.create(var config: Core.Config);
         self._config.setEngine(self);
     end;
 
-
-function Engine.get(symbol: string): TObject;
+generic function Engine.get<T>(): T;
     begin
-        result := findClass(symbol).create();
+        result := T.create();
     end;
 
 
