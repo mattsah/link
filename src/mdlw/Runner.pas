@@ -15,7 +15,7 @@ function Runner.handle(request: Http.Request): Http.Response;
         if (self._runPos < self._stack.count) then
             begin
                 mdlware := self._stack[self._runPos];
-                result  := mdlware.handle(request, @self.handle);
+                result  := mdlware.handle(request, self.handle);
             end
         else
             begin
