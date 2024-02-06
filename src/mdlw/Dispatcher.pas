@@ -3,13 +3,13 @@ function Dispatcher(var engine: Core.Engine): integer;
         runner: Mdlw.Runner;
         request: Http.Request;
         response: Http.Response;
-        default: Mdlw.DefaultMiddleware; // TODO: delete
+        test: Mdlw.DefaultMiddleware; // TODO: delete
     begin
-        runner   := Mdlw.Runner.create(engine, Http.Response.create()); // TODO: Replace with engine.get()
-        request  := Http.Request.createFromServer();
+        test    := engine.get<Mdlw.DefaultMiddleware>(); // TODO: delete
+        runner  := Mdlw.Runner.create(engine, Http.Response.create());
+        request := Http.Request.createFromServer();
 
-        default  := Mdlw.DefaultMiddleware.create(); // TODO: delete
-        runner.register(default); // TODO: delete
+        runner.register(test); // TODO: delete
 
         response := runner.handle(request);
 

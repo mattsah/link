@@ -1,11 +1,10 @@
-type
+{
+    Delegates are responsible for building new instances, they are registered in the
+}
+Delegate = interface
     {
-        Delegates are responsible for building new instances, they are registered in the
+        Get the instance from the delegate
     }
-    Delegate = interface
-        {
-            Get the instance from the delegate
-        }
-        function getInstance(var engine: Core.Engine): TObject;
+    function getInstance(var engine: Core.Engine): TObject;
 
-        end;
+    end;

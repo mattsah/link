@@ -1,4 +1,4 @@
-{$mode objfpc}{$interfaces corba}{$H+}{$J-}
+{$mode delphi}{$interfaces corba}{$H+}{$J-}
 
 unit Http;
 
@@ -12,8 +12,8 @@ interface
         Message    = class;
         Request    = class;
         Response   = class;
-        Headers    = specialize TFPGMap<string, TStringList>;
-        Parameters = specialize TFPGMap<string, TStringList>;
+        Headers    = TFPGMap<string, TStringList>;
+        Parameters = TFPGMap<string, TStringList>;
         Handler    = function(request: Http.Request): Http.Response of object;
 
     {$include 'http/inc/Uri.pp'}

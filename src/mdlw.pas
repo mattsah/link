@@ -1,4 +1,4 @@
-{$mode objfpc}{$interfaces corba}{$H+}{$J-}
+{$mode delphi}{$interfaces corba}{$H+}{$J-}
 
 unit Mdlw;
 
@@ -10,16 +10,18 @@ interface
     type
         Runner     = class;
         Middleware = interface;
-        Stack      = specialize TFPGList<Mdlw.Middleware>;
+        Stack      = TFPGList<Mdlw.Middleware>;
 
-    {$include 'mdlw/inc/Middleware.pp'}
-    {$include 'mdlw/inc/Dispatcher.pp'}
     {$include 'mdlw/inc/Runner.pp'}
+    {$include 'mdlw/inc/Middleware.pp'}
 
     DefaultMiddleware = class(TObject, Mdlw.Middleware)
         public
             function handle(request: Http.Request; next: Http.Handler): Http.Response;
         end;
+
+    {$include 'mdlw/inc/Dispatcher.pp'}
+
 
 implementation
     function DefaultMiddleware.handle(request: Http.Request; next: Http.Handler): Http.Response;
@@ -38,6 +40,6 @@ implementation
             result := response;
         end;
 
-    {$include 'mdlw/Dispatcher.pas'}
     {$include 'mdlw/Runner.pas'}
+    {$include 'mdlw/Dispatcher.pas'}
 end.

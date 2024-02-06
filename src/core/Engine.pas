@@ -4,7 +4,7 @@ constructor Engine.create(var config: Core.Config);
         self._config.setEngine(self);
     end;
 
-generic function Engine.get<T>(): T;
+function Engine.get<T>(): T;
     begin
         result := T.create();
     end;

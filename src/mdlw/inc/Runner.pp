@@ -1,29 +1,27 @@
-type
-    {
+{
 
-    }
-    Runner = class
+}
+Runner = class
+    private
+        _runPos: integer;
+        _engine: Core.Engine;
+        _response: Http.Response;
+        _stack: Mdlw.Stack;
 
-        private
-            _runPos: integer;
-            _engine: Core.Engine;
-            _response: Http.Response;
-            _stack: Mdlw.Stack;
+    public
+        {
 
-        public
-            {
+        }
+        constructor create(var engine: Core.Engine; response: Http.Response);
 
-            }
-            constructor create(var engine: Core.Engine; response: Http.Response);
+        {
 
-            {
+        }
+        function register(middleware: Mdlw.Middleware): Mdlw.Runner;
 
-            }
-            function register(middleware: Mdlw.Middleware): Mdlw.Runner;
+        {
 
-            {
+        }
+        function handle(request: Http.Request): Http.Response;
 
-            }
-            function handle(request: Http.Request): Http.Response;
-
-        end;
+    end;

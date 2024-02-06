@@ -23,9 +23,6 @@ function Runner.handle(request: Http.Request): Http.Response;
             end;
     end;
 
-{
-
-}
 function Runner.register(middleware: Mdlw.Middleware): Mdlw.Runner;
     begin
         self._stack.add(middleware);

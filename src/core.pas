@@ -1,4 +1,4 @@
-{$mode objfpc}{$interfaces corba}{$H+}{$J-}
+{$mode delphi}{$interfaces corba}{$H+}{$J-}
 
 unit Core;
 
