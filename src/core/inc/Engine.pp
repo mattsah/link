@@ -5,7 +5,13 @@ Engine = class
     private
         _config: Core.Config;
         _context: TRttiContext;
-        _factories: TFPGMap<String, Core.Factory>;
+        _factories: Core.Factories;
+        _singletons: Core.Singletons;
+
+        {
+
+        }
+        function make(classType: TClass): TObject;
 
     public
         {
@@ -24,13 +30,12 @@ Engine = class
         function get<T: class>(): T;
 
         {
-
-        }
-        function make(T: TClass): TObject;
-
-        {
             Run the application engine
         }
         function run(handler: Core.Handler): integer;
 
+        {
+
+        }
+        function share(instance: TObject): Core.Engine;
     end;
