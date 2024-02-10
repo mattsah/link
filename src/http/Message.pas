@@ -51,7 +51,7 @@ function Message.delHeader(header: string; value: string = ''): Http.Message;
     begin
         headerPos := self._headers.indexOf(header);
 
-        if (headerPos > 0) then
+        if (headerPos >= 0) then
             begin
                 if (value <> '') then
                     begin

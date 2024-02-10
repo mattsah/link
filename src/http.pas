@@ -1,4 +1,4 @@
-{$mode delphi}{$interfaces corba}{$H+}{$J-}
+{$mode delphi}{$interfaces corba}{$H+}{$M+}{$J-}
 
 unit Http;
 

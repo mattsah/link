@@ -3,7 +3,7 @@ constructor Runner.create(var engine: Core.Engine; response: Http.Response);
         self._runPos   := -1;
         self._engine   := engine;
         self._response := response;
-        self._stack    := Mdlw.Stack.create()
+        self._stack    := Mdlw.Stack.create();
     end;
 
 function Runner.handle(request: Http.Request): Http.Response;

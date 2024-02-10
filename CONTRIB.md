@@ -4,7 +4,7 @@ Right now I'm mostly taking suggestions.  Things I'd like to see implemented but
 no idea where to begin:
 
 - Auto-wired recursive constructor dependency injection via `Engine.get()` method.
-    - If a delegate is registered for the corresponding class or interface it uses the delegate.
+    - If a factory is registered for the corresponding class or interface it uses the factory.
 - Suggestions on how to get a functional version of `fppkg`, as the stable version has a bad SSL
   dependency and building FPC from source results in "error: Access violation."
     - I mostly need this for TOML (which will be the preferred configuration language)

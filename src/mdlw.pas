@@ -1,4 +1,4 @@
-{$mode delphi}{$interfaces corba}{$H+}{$J-}
+{$mode delphi}{$interfaces corba}{$H+}{$M+}{$J-}
 
 unit Mdlw;
 
@@ -14,32 +14,13 @@ interface
 
     {$include 'mdlw/inc/Runner.pp'}
     {$include 'mdlw/inc/Middleware.pp'}
-
-    DefaultMiddleware = class(TObject, Mdlw.Middleware)
-        public
-            function handle(request: Http.Request; next: Http.Handler): Http.Response;
-        end;
-
+    {$include 'mdlw/inc/DefaultMiddleware.pp'}
+    {$include 'mdlw/inc/RunnerFactory.pp'}
     {$include 'mdlw/inc/Dispatcher.pp'}
 
-
 implementation
-    function DefaultMiddleware.handle(request: Http.Request; next: Http.Handler): Http.Response;
-        var
-            response: Http.Response;
-        begin
-            response := next(request);
-
-            response.addHeader('Content-Type', 'text/html');
-            response.addHeader('Connection', 'closed');
-            response.addHeader('X-Test', 'foo');
-            response.addHeader('X-Test', 'bar');
-
-            response.setBody(concat('Hello Pascal! from: ', request.getUri().getPath()));
-
-            result := response;
-        end;
-
     {$include 'mdlw/Runner.pas'}
+    {$include 'mdlw/DefaultMiddleware.pas'}
+    {$include 'mdlw/RunnerFactory.pas'}
     {$include 'mdlw/Dispatcher.pas'}
 end.

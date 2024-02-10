@@ -2,7 +2,6 @@
 
 }
 Config = class
-
     private
         _engine: Core.Engine;
 
