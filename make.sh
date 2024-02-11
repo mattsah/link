@@ -1,3 +1,3 @@
 #!/bin/bash
 
-fpc ./src/app.lpr -o./bin/app
+fpc ./app/app.lpr -o./bin/app -Fusrc

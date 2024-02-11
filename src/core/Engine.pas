@@ -29,7 +29,7 @@ function Engine.get<T>(): T;
         className: string;
         regPos: integer;
     begin
-        className := lowerCase(format('%s.%s', [T.unitName, T.className]));
+        className := format('%s.%s', [T.unitName, T.className]).toLower();
         regPos    := self._singletons.indexOf(className);
 
         if (regPos >= 0) then
