@@ -1,7 +1,7 @@
 Files should start with:
 
 ```pascal
-{$mode delphi}{$interfaces corba}{$H+}{$M+}{$J-}
+{$mode objfpc}{$interfaces corba}{$H+}{$M+}{$J-}
 ```
 
 You can get an environment variable using the `getEnv()` function.  You will need to use `dos` for this function to be available:

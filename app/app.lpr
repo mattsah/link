@@ -16,7 +16,7 @@ begin
     {
         Register delegates, this should eventually be moved to the config
     }
-    engine.delegate('Mdlw.Runner', engine.get<Mdlw.RunnerFactory>());
+    engine.delegate('Mdlw.Runner', engine.get('Mdlw.RunnerFactory') as Core.Factory);
 
     halt(engine.run(@Mdlw.Dispatcher));
 end.

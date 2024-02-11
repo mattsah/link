@@ -2,9 +2,8 @@
 
 unit Mdlw;
 
-
 interface
-    uses fgl, Core, Http;
+    uses fgl, classes, sysutils, Core, Http;
 
 
     type
@@ -23,4 +22,12 @@ implementation
     {$include 'mdlw/DefaultMiddleware.pas'}
     {$include 'mdlw/RunnerFactory.pas'}
     {$include 'mdlw/Dispatcher.pas'}
+
+initialization
+    Core.register([
+        Mdlw.RunnerFactory,
+        Mdlw.DefaultMiddleware
+    ]);
+
 end.
+

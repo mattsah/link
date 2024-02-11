@@ -27,7 +27,7 @@ Engine = class
         {
             Get a new or shared instance of an object, by class or interface name
         }
-        function get<T: class>(): T;
+        function get(identity: string): TObject;
 
         {
             Run the application engine

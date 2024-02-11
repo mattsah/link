@@ -24,29 +24,28 @@ function Engine.delegate(className: string; factory: Core.Factory): Core.Engine;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function Engine.get<T>(): T;
+function Engine.get(identity: string): TObject;
     var
-        className: string;
         regPos: integer;
     begin
-        className := format('%s.%s', [T.unitName, T.className]).toLower();
-        regPos    := self._singletons.indexOf(className);
+        identity := identity.toLower();
+        regPos   := self._singletons.indexOf(identity);
 
         if (regPos >= 0) then
             begin
-                result := T(self._singletons.getData(regPos));
+                result := self._singletons.getData(regPos);
             end
         else
             begin
-                regPos := self._factories.indexOf(className);
+                regPos := self._factories.indexOf(identity);
 
                 if (regPos >= 0) then
                     begin
-                        result := T(self._factories.getData(regPos).getInstance(self));
+                        result := self._factories.getData(regPos).getInstance(self);
                     end
                 else
                     begin
-                        result := T(self.make(T));
+                        result    := self.make(Core.registry.getData(Core.registry.indexOf(identity)));
                     end;
             end;
     end;

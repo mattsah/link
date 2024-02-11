@@ -1,3 +1,3 @@
 #!/bin/bash
 
-fpc ./app/app.lpr -o./bin/app -Fusrc
+fpc ./app/app.lpr -o./bin/app -Fusrc -CX

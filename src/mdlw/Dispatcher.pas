@@ -4,10 +4,10 @@ function Dispatcher(var engine: Core.Engine): integer;
         request: Http.Request;
         response: Http.Response;
     begin
-        runner  := engine.get<Mdlw.Runner>;
+        runner  := engine.get('Mdlw.Runner') as Mdlw.Runner;
         request := Http.Request.createFromServer();
 
-        runner.register(engine.get<Mdlw.DefaultMiddleware>); // TODO: delete
+        runner.register(engine.get('Mdlw.DefaultMiddleware') as Mdlw.Middleware); // TODO: delete
 
         response := runner.handle(request);
 
